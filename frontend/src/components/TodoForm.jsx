@@ -7,7 +7,7 @@ function TodoForm({onSetTodos}) {
       e.preventDefault()
       if (!todo) return;
       setTodo("");
-      axios.post("/create_todo", { task : todo } )
+      axios.post(`${window.location.origin}/create_todo`, { task : todo } )
       .then((result)=>{
         onSetTodos(result.data)
       })

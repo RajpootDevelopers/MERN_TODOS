@@ -11,7 +11,7 @@ function App() {
     ;( async ()=> {
       try {
         setLoading(true);
-        const response = await axios.get("/get_todos");
+        const response = await axios.get(`${window.location.origin}/get_todos`);
         setTodos(response.data);
         setLoading(false);
       } catch (error) {
