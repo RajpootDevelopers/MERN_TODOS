@@ -11,7 +11,7 @@ function TodoItem({ todo, setTodos }) {
 
   const handleEditTodo = async () => {
     try {
-      const result = await axios.post(`https://mern-todos-j9nj48df5-afaq-ahmads-projects-571f8223.vercel.app/server/server.js/update_todo`,{ id: todo._id, todoMsg });  
+      const result = await axios.post(`http://localhost:5000/update_todo`,{ id: todo._id, todoMsg });  
       setTodos(result.data);
     } catch (error) {
       console.log("Error updating todo:", error);
@@ -20,7 +20,7 @@ function TodoItem({ todo, setTodos }) {
 
   const deleteTodo = async () => {
     try {
-      const result = await axios.delete(`https://mern-todos-j9nj48df5-afaq-ahmads-projects-571f8223.vercel.app/server/server.js/delete_todo?id=${todo._id}`);
+      const result = await axios.delete(`http://localhost:5000/delete_todo?id=${todo._id}`);
       setTodos(result.data);
     } catch (error) {
       console.log("Error deleting todo:", error);

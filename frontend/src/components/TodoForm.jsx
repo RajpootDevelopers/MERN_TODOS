@@ -7,7 +7,7 @@ function TodoForm({onSetTodos}) {
       e.preventDefault()
       if (!todo) return;
       setTodo("");
-      axios.post(`https://mern-todos-j9nj48df5-afaq-ahmads-projects-571f8223.vercel.app/server/server.js/create_todo`, { task : todo } )
+      axios.post(`http://localhost:5000/create_todo`, { task : todo } )
       .then((result)=>{
         onSetTodos(result.data)
       })
