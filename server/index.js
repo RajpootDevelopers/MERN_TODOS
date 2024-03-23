@@ -25,8 +25,9 @@ app.use(express.json());
 app.use(cors());
 // Allow specific origin(s)
 app.use(cors({
-  origin: 'https://todos-server-murex.vercel.app'
-}));
+    origin: ['https://todos-server-murex.vercel.app', 'https://mern-todos-lyart.vercel.app', 'https://todo-server-virid.vercel.app']
+  }));
+  
 
 // app.use(express.urlencoded({ extended : true}));
 
