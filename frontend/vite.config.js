@@ -8,7 +8,7 @@ export default defineConfig({
     port : 3000,
     proxy : {
       '/api' : {
-        target : 'http://localhost:5000',
+        target : 'https://todos-server-3uw2yjr4t-afaq-ahmads-projects-571f8223.vercel.app/',
         // changeOrigin : true
       }
     }

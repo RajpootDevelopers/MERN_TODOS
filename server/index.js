@@ -20,7 +20,13 @@ const Todo = mongoose.model('Todo', toDoSchema);
 
 // const __dirname = path.resolve();
 
-app.use(express.json(), cors());
+app.use(express.json());
+// Allow all origins
+app.use(cors());
+// Allow specific origin(s)
+app.use(cors({
+  origin: 'https://todos-server-murex.vercel.app'
+}));
 
 // app.use(express.urlencoded({ extended : true}));
 

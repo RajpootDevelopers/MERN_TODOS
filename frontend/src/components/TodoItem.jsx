@@ -11,7 +11,7 @@ function TodoItem({ todo, setTodos }) {
 
   const handleEditTodo = async () => {
     try {
-      const result = await axios.post(`https://todos-server-3uw2yjr4t-afaq-ahmads-projects-571f8223.vercel.app/update_todo`,{ id: todo._id, todoMsg });  
+      const result = await axios.post(`https://todos-server-murex.vercel.app/update_todo`,{ id: todo._id, todoMsg });  
       setTodos(result.data);
     } catch (error) {
       console.log("Error updating todo:", error);
@@ -20,7 +20,7 @@ function TodoItem({ todo, setTodos }) {
 
   const deleteTodo = async () => {
     try {
-      const result = await axios.delete(`https://todos-server-3uw2yjr4t-afaq-ahmads-projects-571f8223.vercel.app/delete_todo?id=${todo._id}`);
+      const result = await axios.delete(`https://todos-server-murex.vercel.app/delete_todo?id=${todo._id}`);
       setTodos(result.data);
     } catch (error) {
       console.log("Error deleting todo:", error);

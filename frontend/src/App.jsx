@@ -11,7 +11,7 @@ function App() {
     ;( async ()=> {
       try {
         setLoading(true);
-        const response = await axios.get(`https://todos-server-3uw2yjr4t-afaq-ahmads-projects-571f8223.vercel.app/get_todos`);
+        const response = await axios.get(`https://todos-server-murex.vercel.app/get_todos`);
         setTodos(response.data);
         setLoading(false);
       } catch (error) {
