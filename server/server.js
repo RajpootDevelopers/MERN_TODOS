@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import connectToMongoDB from "./connectToMongoDB.js";
 import cors from "cors";
-import path from "path"
+// import path from "path"
 dotenv.config();
 
 const app = express();
@@ -18,7 +18,7 @@ const toDoSchema = new Schema({
 });
 const Todo = mongoose.model('Todo', toDoSchema);
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use(express.json(), cors());
 
@@ -76,11 +76,11 @@ app.post("/update_todo", async (req, res) => {
         res.status(404).json({ error: "Todo not found" }); 
     }
 });
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend" , "dist", "index.html"));
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend" , "dist", "index.html"));
+// })
 
 
 app.listen(PORT, () => {
