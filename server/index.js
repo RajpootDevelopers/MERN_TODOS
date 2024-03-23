@@ -32,7 +32,7 @@ app.post("/create_todo", async (req, res) => {
         const newTodo = new Todo({ task });
         await newTodo.save()
         let todos_db = await Todo.find();
-        res.status(201).json(todos_db)
+        res.json(todos_db)
 
     } catch (error) {
         console.log(error);
@@ -45,8 +45,8 @@ app.post("/create_todo", async (req, res) => {
 app.get("/get_todos", async (_, res) => {
 
     try {
-        const todos_db = await Todo.find();
-        res.status(200).json(todos_db)
+        const todos_db = Todo.find();
+        res.json(todos_db)
     } catch (error) {
         res.status(500).json({ error : "Failed to get todos"})
         console.log(error);
@@ -60,7 +60,7 @@ app.delete("/delete_todo", async (req, res) => {
         const id = req.query.id
         await Todo.findByIdAndDelete(id)
         const todos_db = await Todo.find();
-    res.json(todos_db)
+        res.json(todos_db)
     } catch (error) {
         res.status(500).json({ error: 'Failed to delete todo' });
     }
@@ -73,7 +73,7 @@ app.post("/update_todo", async (req, res) => {
         const todos = await Todo.find(); 
         res.json(todos); 
     } else {
-        res.status(404).json({ error: "Todo not found" }); 
+        res.status(404).json({ error: "Todos not found" }); 
     }
 });
 // app.use(express.static(path.join(__dirname, "/frontend/dist")));
