@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server : {
     port : 3000,
-    // proxy : {
-    //   '/api' : {
-    //     target : 'https://todos-server-murex.vercel.app',
-    //     // changeOrigin : true
-    //   }
-    // }
+    proxy : {
+      '/api' : {
+        target : 'https://todos-server-murex.vercel.app',
+        // changeOrigin : true
+      }
+    }
   }
 })
