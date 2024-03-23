@@ -45,7 +45,7 @@ app.post("/create_todo", async (req, res) => {
 app.get("/get_todos", async (_, res) => {
 
     try {
-        const todos_db = Todo.find();
+        const todos_db = await Todo.find();
         res.json(todos_db)
     } catch (error) {
         res.status(500).json({ error : "Failed to get todos"})
@@ -83,7 +83,7 @@ app.post("/update_todo", async (req, res) => {
 // })
 
 
+connectToMongoDB();
 app.listen(PORT, () => {
-    connectToMongoDB();
     console.log(`server is listening by ${PORT}`)
 })
